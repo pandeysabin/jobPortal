@@ -15,8 +15,10 @@
 //     return view('welcome');
 // });
 
-Route::get('/', 'pagesController@getHome');
-Route::get('/postjob', 'pagesController@getJobPortal')->name('postJob');
-Route::post('/postjob', 'jobController@postJobDesc')->name('jobDesc');
-Route::get('confirm', 'pagesController@confirm')->name('confirm');
-Route::get('/searchjob', 'jobController@searchJob')->name('search');
+Route::prefix('job')->group(function (){
+    Route::get('/', 'pagesController@getHome');
+    Route::get('/postjob', 'pagesController@getJobPortal')->name('postJob');
+    Route::post('/postjob', 'jobController@postJobDesc')->name('jobDesc');
+    Route::get('/confirm', 'pagesController@confirm')->name('confirm');
+    Route::get('/searchjob', 'jobController@searchJob')->name('search');
+});

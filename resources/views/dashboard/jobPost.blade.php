@@ -9,35 +9,43 @@
     <!-- <script src="main.js"></script> -->
 </head>
 <body>
-    <fieldset style="width:100px; height:auto; margin:200px 0px 0px 500px;">
-        <form method="POST" action="{{ route('jobDesc') }}">
-            {{csrf_field()}}
-            <table>
-                <tbody>
-                    <tr>
-                        <td><label>E-mail:</label></td>
-                        <td>
-                            <input type="text" name="email" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><label for="job">Job title:</label></td>
-                        <td>
-                            <input id="job" type="text" name="jTitle"  />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Skill set: </td>
-                        <td>
-                            <input type="checkbox" name="php" />PHP
-                            <input type="checkbox" name="laravel" />Laravel
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><input type="submit" name="post" value="POST" /></td>
-                    </tr>
-                </tbody>
-            </table>
-        </form>
+    <div class="jobportal" style="margin:200px 0px 0px 600px;">
+        <fieldset style="width:500px; height:auto;">
+            <form method="POST" action="{{ route('jobDesc') }}">
+                {{csrf_field()}}
+                <h1 style="text-align:center;">Job portal</h1>
+                <table>
+                    <tbody>
+                        <tr>
+                            <td><label>E-mail:</label></td>
+                            <td>
+                                <input autofocus type="email" name="email" required />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label for="jobTitle">Job title:</label></td>
+                            <td>
+                                <input id="jobTitle" type="text" name="jTitle" required  />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label for="jDetails">Job details:</label></td>
+                            <td><textarea type="text" name="jobdetails" id="jDetails" cols="20" rows=5 required ></textarea></td>
+                        </tr>
+                        <tr>
+                            <td>Skill set: </td>
+                            <td>
+                                <input type="checkbox" name="php" />PHP
+                                <input type="checkbox" name="laravel" />Laravel
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><input type="submit" name="post" value="POST" /></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+        </fieldset>
+    <div>
 </body>
 </html>
