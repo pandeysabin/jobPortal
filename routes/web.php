@@ -15,8 +15,8 @@
 //     return view('welcome');
 // });
 
-Route::prefix('job')->group(function (){
-    Route::get('/', 'pagesController@getHome');
+Route::prefix('jobs')->group(function (){
+    Route::get('/', 'pagesController@getHome')->name('home');
     Route::get('/postjob', 'pagesController@getJobPortal')->name('postJob');
     Route::post('/postjob', 'jobController@postJobDesc')->name('jobDesc');
     Route::get('/confirm', 'pagesController@confirm')->name('confirm');

@@ -5,10 +5,10 @@ namespace App\Http\Controllers;
 class pagesController extends Controller {
 
     public function getHome() {
-        return view('home');
+        return view('pages.home');
     }
 
     public function getJobPortal() {
-        return view('dashboard.jobPost');
+        return view('pages.jobPost');
     }
 }

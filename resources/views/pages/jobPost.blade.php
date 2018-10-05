@@ -12,7 +12,7 @@
     <div class="jobportal" style="margin:200px 0px 0px 600px;">
         <fieldset style="width:500px; height:auto;">
             <form method="POST" action="{{ route('jobDesc') }}">
-                {{csrf_field()}}
+                {{ csrf_field() }}
                 <h1 style="text-align:center;">Job portal</h1>
                 <table>
                     <tbody>
@@ -23,20 +23,19 @@
                             </td>
                         </tr>
                         <tr>
-                            <td><label for="jobTitle">Job title:</label></td>
+                            <td><label for="jTitle">Job title:</label></td>
                             <td>
-                                <input id="jobTitle" type="text" name="jTitle" required  />
+                                <input id="jTitle" type="text" name="jTitle" required  />
                             </td>
                         </tr>
                         <tr>
                             <td><label for="jDetails">Job details:</label></td>
-                            <td><textarea type="text" name="jobdetails" id="jDetails" cols="20" rows=5 required ></textarea></td>
+                            <td><textarea type="text" name="jDetails" id="jDetails" cols="20" rows=5 required ></textarea></td>
                         </tr>
                         <tr>
                             <td>Skill set: </td>
                             <td>
-                                <input type="checkbox" name="php" />PHP
-                                <input type="checkbox" name="laravel" />Laravel
+                                <input type="text" name="skillSet" value="" size=45 />
                             </td>
                         </tr>
                         <tr>
