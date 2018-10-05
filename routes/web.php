@@ -16,9 +16,9 @@
 // });
 
 Route::prefix('jobs')->group(function (){
-    Route::get('/', 'pagesController@getHome')->name('home');
-    Route::get('/postjob', 'pagesController@getJobPortal')->name('postJob');
-    Route::post('/postjob', 'jobController@postJobDesc')->name('jobDesc');
-    Route::get('/confirm', 'pagesController@confirm')->name('confirm');
-    Route::get('/searchjob', 'jobController@searchJob')->name('search');
+    Route::get('/', 'PagesController@getHome')->name('home');
+    Route::get('/postjob', 'PagesController@getJobPortal')->name('postJob');
+    Route::post('/postingjob', 'JobController@postJobDesc')->name('jobDesc');
+    Route::get('/confirm', 'PagesController@confirm')->name('confirm');
+    Route::get('/searchjob', 'JobController@searchJob')->name('search');
 });
