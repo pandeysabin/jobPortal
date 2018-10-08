@@ -123,7 +123,7 @@ class JobController extends Controller
             return view('pages.jobSearch', compact('results'));
         }
         else {
-            return redirect()->route('home');
+            return redirect()->route('home')->with('error', 'Sorry no job found! :( ');
         }
     }
 }
