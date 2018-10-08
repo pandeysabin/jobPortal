@@ -120,7 +120,7 @@ class JobController extends Controller
         $results = JobPortal::where('email', $request->search)->orWhere('jTitle', 'LIKE', '%' . $request->search . '%')->orWhere('jDetails', 'LIKE', '%' . $request->search . '%')->get();
         // return view('pages.home', compact('results'));
         if (count($results) > 0) {
-            return view('pages.jobSearch')->withDetails('results')->withQuery($search);
+            return view('pages.jobSearch', compact('results'));
         }
         else {
             return redirect()->route('home');

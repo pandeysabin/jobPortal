@@ -13,7 +13,7 @@
                 </div>
             </form>
     </div>
-    @if(isset($details))
+    @if(isset($results))
         <div class="table-wrapper">
                 <h2><center>Jobs for you</center></h2>
                 <table class="table table-hover">
@@ -32,7 +32,7 @@
                     </thead> 
                     <tbody>
                         @php($id = 1)
-                        @foreach($details as $data)
+                        @foreach($results as $data)
                             <tr>
                                 <td>{{ $data->jTitle }}</td>
                                 <td>{{ str_limit($data->jDetails, 50) }}</td>
