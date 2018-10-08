@@ -115,16 +115,15 @@ class JobController extends Controller
 
 
     public function search(Request $request)
-    {
-        $name = $request->search;
-        $table = new JobPortal;
-        $result = DB::table('job_portals')
-            ->SELECT(DB::raw("*"))
-            ->WHERE('jTitle', '=', $name)
-            ->WHERE('skillSet', 'LIKE', '%'.$name.'%')
-            ->get();
-
-        echo $result;
-
+    { 
+        $search = $request->search;
+        $results = JobPortal::where('email', $request->search)->orWhere('jTitle', 'LIKE', '%' . $request->search . '%')->orWhere('jDetails', 'LIKE', '%' . $request->search . '%')->get();
+        // return view('pages.home', compact('results'));
+        if (count($results) > 0) {
+            return view('pages.jobSearch')->withDetails('results')->withQuery($search);
+        }
+        else {
+            return redirect()->route('home');
+        }
     }
 }

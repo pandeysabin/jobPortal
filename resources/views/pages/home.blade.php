@@ -45,10 +45,10 @@
         @endif
         <div class="col-md-3" style="margin-left:600px;">
             <span class="btn">
-                <h5><a href="{{ route('postJob') }}">Post a job</a></h5>
+                <h4><a class="badge badge-secondary" href="{{ route('postJob') }}">Post a job</a></h4>
             </span>
             <span class="btn">
-                <h5><a href="{{ route('pages.search') }}">Search a job</a></h5>
+                <h4><a class="badge badge-primary" href="{{ route('pages.search') }}">Search a job</a></h4>
             </span>
         </div>
     @endsection
