@@ -1,14 +1,14 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Page Title</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-    <script src="main.js"></script>
-</head>
-<body>
-    <form method="POST" action="{{ route('') }}"></form>    
-</body>
-</html>
+@extends('layout.layout')
+@section('title', 'Search')
+@section('content')
+    <div class="form-wrapper" style="margin: 100px 0px 0px 500px; width:500px; height:auto;">
+        <div class="form-group">
+            <form action="{{ route('search') }}">
+                <input type="text" name="search" class="form-control" required />
+        </div>
+        <div class="col-md-2">
+                <input type="submit" value="Search" class="btn btn-lg btn-primary" />
+            </form>
+        </div>
+    </div>
+@endsection()

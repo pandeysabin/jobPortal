@@ -22,3 +22,14 @@ $factory->define(App\User::class, function (Faker $faker) {
         'remember_token' => str_random(10),
     ];
 });
+
+$factory->define(App\JobPortal::class, function (Faker\Generator $faker) {
+ 
+    return [
+        'email' => $faker->unique()->safeEmail,
+        'jTitle' => str_random(10),
+        'jDetails' => str_random(100),
+        'skillSet' => str_random(50),
+        'uID' => $faker->randomdigit(10)->unique(),
+    ];
+});

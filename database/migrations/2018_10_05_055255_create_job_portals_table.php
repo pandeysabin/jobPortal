@@ -15,12 +15,14 @@ class CreateJobPortalsTable extends Migration
     {
         Schema::create('job_portals', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('email');
+            $table->string('email')->unique();
             $table->string('jTitle');
             $table->string('jDetails');
             $table->string('skillSet');
+            $table->string('uID')->unique();
             $table->date('date')->nullable();
             $table->timestamps();
+            
         });
     }
 

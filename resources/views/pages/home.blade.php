@@ -1,21 +1,54 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Job</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css" /> -->
-    <!--<script src="main.js"></script>-->
-</head>
-<body>
-    <div class="job">
-        <span>
-            <a href="{{ route('postJob') }}">Post a job</a>
-        </span>
-        <span>
-            <a href="{{ route('search') }}">Search a job</a>
-        </span>
-    </div>
-</body>
-</html>
+@extends('layout.layout')
+@section('title', 'Job')
+@section('content')
+        @include('layout.sessionMessage')
+        @if(count($table))
+            <div class="table-wrapper">
+                <h2><center>Jobs for you</center></h2>
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Job title</th>
+                            <th>Job Details</th>
+                            <th>Skills</th>
+                            <th>created_at</th>
+                            <th>updated_at</th>
+                            <th>
+                                Edit
+                                Delete
+                            </th>
+                        </tr>
+                    </thead> 
+                    <tbody>
+                        @php($id = 1)
+                        @foreach($table as $data)
+                            <tr>
+                                <td>{{ $data->jTitle }}</td>
+                                <td>{{ str_limit($data->jDetails, 50) }}</td>
+                                <td>{{ $data->skillSet }}</td>
+                                <td>{{ $data->created_at }}</td>
+                                <td>{{ $data->updated_at }}</td>
+                                <td>
+                                    <div class="d-flex">
+                                        <form method="POST" action="{{ route('job.valAuth', ['id' => $data->id]) }}">
+                                            {{ csrf_field() }}
+                                            <button class="btn btn-success" name="edit" value="edit"><i class="fa fa-trash">Edit</i></button>
+                                            <button class="btn btn-danger" name="delete" value="delete"><i class="fa fa-trash">Delete</i></button>
+                                        </form>
+                                    </div>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+        @endif
+        <div class="col-md-3" style="margin-left:600px;">
+            <span class="btn">
+                <h5><a href="{{ route('postJob') }}">Post a job</a></h5>
+            </span>
+            <span class="btn">
+                <h5><a href="{{ route('pages.search') }}">Search a job</a></h5>
+            </span>
+        </div>
+    @endsection

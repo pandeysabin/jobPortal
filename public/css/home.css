@@ -1,0 +1,17 @@
+.job {
+    height: auto;
+    weight: auto;
+    margin-left: 600px;
+    padding: 20px;
+}
+
+.job .jobPost {
+    margin-right: 100px;
+    height: 200px;
+    width: 200px;
+}
+
+.job .jobPost:hover {
+    /* background: blue; */
+    color: #ffffff;
+}
