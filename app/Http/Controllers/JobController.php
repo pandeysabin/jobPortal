@@ -52,7 +52,7 @@ class JobController extends Controller
             'uID' => $string
         );
         Mail::send('emails.send', $data, function($message) use ($data) {
-            // $message->from('sdfdsf@gmail.com');
+            $message->from('no-reply@gmail.com', 'Nibas');
             $message->to($data['email']);
         });
 
@@ -61,13 +61,13 @@ class JobController extends Controller
         // $data => array()    
     }
 
+    //To edit the posted job by authenticating ID
     public function auth($id, Request $request)
     {
-        if($request->edit == "edit"){
+        if ($request->edit == "edit") {
             $table = JobPortal::findorFail($id);
             return view('pages.auth.edit', compact('table'));
-        }
-        else {
+        } else {
             $table = JobPortal::findorFail($id);
             return view('pages.auth.delete', compact('table'));
         }
@@ -77,10 +77,9 @@ class JobController extends Controller
     {
         $table = JobPortal::find($id);
 
-        if($table->uID == $request->id) {
+        if ($table->uID == $request->id) {
             return view('pages.edit', compact('table'));
-        }
-        else {
+        } else {
             return redirect()->route('pages.home');
         }
         
@@ -88,14 +87,12 @@ class JobController extends Controller
 
     public function update(Request $request, $id) 
     {
-            $table = JobPortal::find($id);
-            $table->jTitle = $request->jTitle;
-            $table->jDetails = $request->jDetails;
-            $table->skillSet = $request->skillSet;
-            $table->save();
-            return redirect()->route('home');
-        
-
+        $table = JobPortal::find($id);
+        $table->jTitle = $request->jTitle;
+        $table->jDetails = $request->jDetails;
+        $table->skillSet = $request->skillSet;
+        $table->save();
+        return redirect()->route('home');
     }
 
     
@@ -109,8 +106,6 @@ class JobController extends Controller
         else {
             return redirect()->route('home')->with("error", "Invalid unique ID");
         }
-       
-        
     }
 
 
@@ -121,8 +116,7 @@ class JobController extends Controller
         // return view('pages.home', compact('results'));
         if (count($results) > 0) {
             return view('pages.jobSearch', compact('results'));
-        }
-        else {
+        } else {
             return redirect()->route('home')->with('error', 'Sorry no job found! :( ');
         }
     }

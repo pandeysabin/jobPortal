@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateJobPortalsTable extends Migration
+class CreateJobportalTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateJobPortalsTable extends Migration
      */
     public function up()
     {
-        Schema::create('job_portals', function (Blueprint $table) {
+        Schema::create('jobPortal', function (Blueprint $table) {
             $table->increments('id');
             $table->string('email')->unique();
             $table->string('jTitle');
@@ -22,7 +22,6 @@ class CreateJobPortalsTable extends Migration
             $table->string('uID')->unique();
             $table->date('date')->nullable();
             $table->timestamps();
-            
         });
     }
 
@@ -33,6 +32,6 @@ class CreateJobPortalsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('job_portals');
+        Schema::dropIfExists('job_portal');
     }
 }

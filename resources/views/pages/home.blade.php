@@ -40,10 +40,12 @@
                             </tr>
                         @endforeach
                     </tbody>
+
+                    {{ $table->links() }}
                 </table>
             </div>
         @endif
-        <div class="col-md-3" style="margin-left:600px;">
+        <div class="col-md-5" style="margin-left:39%;">
             <span class="btn">
                 <h4><a class="badge badge-secondary" href="{{ route('postJob') }}">Post a job</a></h4>
             </span>
@@ -51,4 +53,4 @@
                 <h4><a class="badge badge-primary" href="{{ route('pages.search') }}">Search a job</a></h4>
             </span>
         </div>
-    @endsection
+@endsection

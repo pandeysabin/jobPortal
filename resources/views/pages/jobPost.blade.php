@@ -1,7 +1,7 @@
 @extends('layout.layout')
 @section('title', 'Post a job')
 @section('content')
-        <div class="col-md-6" style="margin:200px 0px 0px 600px;">
+        <div class="col-md-12" style="margin:200px 0px 0px 600px;">
             <fieldset style="width:500px; height:auto;">
                 <div class="form-wrapper">
                     <form name="jobPost" method="POST" action="{{ route('jobDesc') }}">
@@ -25,7 +25,7 @@
                             </div>     
                             <div class="form-group">
                                 <div class="col-md-6 col-md-offset-4">
-                                    <input type="submit" name="post" value="POST" />
+                                    <input class="btn btn-success" type="submit" name="post" value="POST" />
                                 </div>
                                 
                             </div>

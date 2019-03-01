@@ -6,6 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class JobPortal extends Model
 {
-    protected $table = 'job_portals';
+    protected $table = 'jobPortal';
     protected $fillable = ['email', 'jTitle', 'jDetails', 'skillSet'];
 }
