@@ -1,4 +1,4 @@
-/vender
+/vendor
 .env
 /node_modules
 /public/storage
