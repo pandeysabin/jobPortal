@@ -17,14 +17,14 @@
 
 Route::prefix('jobs')->group(function () {
     Route::get('/', 'PagesController@getHome')->name('home');
-    Route::get('/post-job', 'PagesController@getJobPortal')->name('postJob');
-    Route::post('/posting-job', 'JobController@postJobDesc')->name('jobDesc');
+    Route::get('/postJob', 'PagesController@getJobPortal')->name('postJob');
+    Route::post('/postingJob', 'JobController@postJobDesc')->name('jobDesc');
     Route::get('/confirm', 'PagesController@confirm')->name('confirm');
-    Route::get('/search-job', 'JobController@searchJob')->name('search');
-    Route::post('/val-auth/{id}/authentciate', 'JobController@auth')->name('job.valAuth');
+    Route::get('/searchJob', 'JobController@searchJob')->name('search');
+    Route::post('/valAuth/{id}/authentciate', 'JobController@auth')->name('job.valAuth');
     Route::post('/edit/{uid}', 'JobController@edit')->name('job.edit');
     Route::post('/update/{id}', 'JobController@update')->name('job.update');
     Route::delete('/delete/{id}', 'JobController@destroy')->name('job.delete');
-    Route::get('/search-job', 'PagesController@searchJob')->name('pages.search');
+    Route::get('/searchJob', 'PagesController@searchJob')->name('pages.search');
     Route::post('/search', 'JobController@search')->name('search');
 });
